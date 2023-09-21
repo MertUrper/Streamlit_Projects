@@ -19,7 +19,22 @@ st.markdown(
 st.markdown('<div style="display: flex; justify-content: flex-end; margin-top:-70px"><img src="https://i.pinimg.com/originals/4a/73/1f/4a731f6a5480f6ee8b9bfb34168c333b.gif" alt="GIF" width="100%" style="max-width: 400px; margin-right: 160px;"></div>', unsafe_allow_html=True)
 st.markdown('<p style="background-color: #8a4baf; color: white; font-size: 30px; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);">🌻Çiçek Tahmin Uygulaması🌻</p>', unsafe_allow_html=True)
 st.markdown('<p style="background-color: #8a4baf; color: white; font-size: 20px; padding: 10px; border-radius: 5px; text-align: center; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);">💐Çiçek Türleri💐</p>', unsafe_allow_html=True)
-st.image("turler.png", use_column_width=True)
+#st.image("turler.png", use_column_width=True)
+#st.write("Çiçek Türleri: Daisy, Dandelion, Rose, Sunflower, Tulip")
+flower_types = ["Daisy", "Dandelion", "Rose", "Sunflower", "Tulip"]
+flower_colors = ["red", "green", "blue", "orange", "purple"]
+
+# Her bir çiçek türünü yan yana bir kutucuk içinde göster
+#st.markdown('<p style="text-align: center;">Çiçek Türleri</p>', unsafe_allow_html=True)
+flower_divs = []
+
+for i, flower in enumerate(flower_types):
+    flower_divs.append(
+        f'<div style="background-color: {flower_colors[i]}; color: white; font-size: 16px; padding: 10px; border-radius: 5px; text-align: center; margin-right: 10px; display: inline-block;">{flower}</div>'
+    )
+
+st.write(" ".join(flower_divs), unsafe_allow_html=True)
+
 # Kullanıcıdan resim yükleme yöntemini seçmesini isteyin
 st.sidebar.title("Resim Yükleme Yöntemi")
 upload_method = st.sidebar.radio("Lütfen bir model seçin:", ["Bilgisayarınızdan Yükle", "İnternet Bağlantısı ile Yükle"])
